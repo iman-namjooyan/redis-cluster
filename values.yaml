@@ -1,0 +1,27 @@
+global:
+  storageClass: "cephfs-hdd"
+
+architecture: "replication"
+cluster:
+  enabled: true
+  slaveCount: 1
+  nodes: 6   # 3 masters + 3 replicas (1 replica per master)
+
+auth:
+  enabled: true
+  password: redispassword
+
+persistence:
+  enabled: true
+  storageClass: "cephfs-hdd"
+  size: 5Gi
+
+resources:
+  requests:
+    memory: 256Mi
+    cpu: 100m
+
+nodeSelector: {}
+tolerations: []
+affinity: {}
+
